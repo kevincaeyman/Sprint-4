@@ -1,16 +1,22 @@
 import { movies } from "./data.js";
 document.getElementById("getAllDirectors").addEventListener("click", getAllDirectors);
+document.getElementById("getMoviesFromDirector").addEventListener("click", getMoviesFromDirector)
+
 
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  let result = movies.map(v => v.director);
+  const result = movies.map(v => v.director);
   console.log("EXERCICE 1 ->", result);
   return result;
 }
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
- 
+  const directorsName = document.getElementById("directorsName").value;
+  const filteredMovies = movies.filter(v => v.director === directorsName)
+
+  console.log(filteredMovies)
+  document.getElementById("moviesFilteredByDirector").innerHTML = JSON.stringify(filteredMovies)
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
