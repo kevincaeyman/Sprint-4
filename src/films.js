@@ -17,7 +17,7 @@ function getMoviesFromDirector(array, director) {
 function moviesAverageOfDirector(array, director) {
   
 }
-
+ 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
   
