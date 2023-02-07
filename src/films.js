@@ -1,6 +1,7 @@
 import { movies } from "./data.js";
 document.getElementById("getAllDirectors").addEventListener("click", getAllDirectors);
 document.getElementById("getMoviesFromDirector").addEventListener("click", getMoviesFromDirector)
+document.getElementById("getAverageScore").addEventListener("click", moviesAverageOfDirector)
 
 
 // Exercise 1: Get the array of all directors.
@@ -15,13 +16,16 @@ function getMoviesFromDirector(array, director) {
   const directorsName = document.getElementById("directorsName").value;
   const filteredMovies = movies.filter(v => v.director === directorsName)
 
-  console.log(filteredMovies)
-  document.getElementById("moviesFilteredByDirector").innerHTML = JSON.stringify(filteredMovies)
+  document.getElementById("moviesFilteredByDirector").innerHTML = "Movies by this director: <br> <br>" +  JSON.stringify(filteredMovies)
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
-  
+  const directorsName = document.getElementById("directorsName").value;
+  const filteredMovies = movies.filter(v => v.director === directorsName)
+  let averageScore = filteredMovies.map(v => v.score).reduce((a,b) => (a+b)/filteredMovies.length)
+
+  document.getElementById("averageScoreResult").innerHTML = "Average movies score: " + averageScore.toFixed(1)
 }
  
 // Exercise 4:  Alphabetic order by title 
