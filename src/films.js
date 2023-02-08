@@ -4,7 +4,6 @@ document.getElementById("getMoviesFromDirector").addEventListener("click", getMo
 document.getElementById("getAverageScore").addEventListener("click", moviesAverageOfDirector)
 document.getElementById("directorsOrdered").addEventListener("click", orderAlphabetically)
 document.getElementById("moviesOrdered").addEventListener("click", orderByYear)
-document.getElementById("getAverageScoreByGenre").addEventListener("click", moviesAverageByCategory)
 
 
 // Exercise 1: Get the array of all directors.
@@ -40,11 +39,11 @@ function orderAlphabetically(array) {
 // Exercise 5: Order by year, ascending
 function orderByYear() {
   const moviesOrdered = (movies.sort((a, b) => {
-    if (a.year === b.year) {
-      return a.title < b.title ? -1 : 1
+    if(a.year === b.year){
+      return a.title < b.title ? -1: 1
     }
-    else {
-      return a.year < b.year ? -1 : 1
+    else{
+      return a.year < b.year ? -1: 1
     }
   }))
 
@@ -54,10 +53,7 @@ function orderByYear() {
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory() {
-  const movieGenre = document.getElementById("movieGenre").value
-  const filteredMovies = movies.filter(v => (v.genre).includes(movieGenre))
 
-  console.log(filteredMovies)
 }
 
 // Exercise 7: Modify the duration of movies to minutes
