@@ -2,6 +2,7 @@ import { movies } from "./data.js";
 document.getElementById("getAllDirectors").addEventListener("click", getAllDirectors);
 document.getElementById("getMoviesFromDirector").addEventListener("click", getMoviesFromDirector)
 document.getElementById("getAverageScore").addEventListener("click", moviesAverageOfDirector)
+document.getElementById("directorsOrdered").addEventListener("click", orderAlphabetically)
 
 
 // Exercise 1: Get the array of all directors.
@@ -30,7 +31,8 @@ function moviesAverageOfDirector(array, director) {
  
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  
+  const directorsOrdered = (movies.map(v => v.director).sort()).splice(0,20)
+  document.getElementById("directorsOrderedList").innerHTML = directorsOrdered
 }
 
 // Exercise 5: Order by year, ascending
