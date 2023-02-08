@@ -4,6 +4,7 @@ document.getElementById("getMoviesFromDirector").addEventListener("click", getMo
 document.getElementById("getAverageScore").addEventListener("click", moviesAverageOfDirector)
 document.getElementById("directorsOrdered").addEventListener("click", orderAlphabetically)
 document.getElementById("moviesOrdered").addEventListener("click", orderByYear)
+document.getElementById("getAverageScoreByGenre").addEventListener("click", moviesAverageByCategory)
 
 
 // Exercise 1: Get the array of all directors.
@@ -25,7 +26,7 @@ function getMoviesFromDirector(array, director) {
 function moviesAverageOfDirector(array, director) {
   const directorsName = document.getElementById("directorsName").value;
   const filteredMovies = movies.filter(v => v.director === directorsName)
-  let averageScore = filteredMovies.map(v => v.score).reduce((a, b) => (a + b) / filteredMovies.length)
+  let averageScore = (filteredMovies.map(v => v.score).reduce((a, b) => (a + b)) / filteredMovies.length)
 
   document.getElementById("averageScoreResult").innerHTML = "Average movies score: " + averageScore.toFixed(1)
 }
@@ -39,11 +40,11 @@ function orderAlphabetically(array) {
 // Exercise 5: Order by year, ascending
 function orderByYear() {
   const moviesOrdered = (movies.sort((a, b) => {
-    if(a.year === b.year){
-      return a.title < b.title ? -1: 1
+    if (a.year === b.year) {
+      return a.title < b.title ? -1 : 1
     }
-    else{
-      return a.year < b.year ? -1: 1
+    else {
+      return a.year < b.year ? -1 : 1
     }
   }))
 
@@ -53,7 +54,15 @@ function orderByYear() {
 
 // Exercise 6: Calculate the average of the movies in a category
 function moviesAverageByCategory() {
+  const movieGenre = document.getElementById("movieGenre").value
+  const filteredMovies = movies.filter(v => (v.genre).includes(movieGenre))
 
+  let averageScore = (filteredMovies.map(v => v.score).reduce((a, b) => (a + b)) / filteredMovies.length)
+
+  document.getElementById("genreAverageScore").innerHTML = `The average score for the ${movieGenre} is ${averageScore.toFixed(1)}`
+
+  console.log(filteredMovies)
+  console.log(averageScore)
 }
 
 // Exercise 7: Modify the duration of movies to minutes
