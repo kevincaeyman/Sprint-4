@@ -5,6 +5,7 @@ document.getElementById("getAverageScore").addEventListener("click", moviesAvera
 document.getElementById("directorsOrdered").addEventListener("click", orderAlphabetically)
 document.getElementById("moviesOrdered").addEventListener("click", orderByYear)
 document.getElementById("getAverageScoreByGenre").addEventListener("click", moviesAverageByCategory)
+document.getElementById("hoursToMinutes").addEventListener("click", hoursToMinutes)
 
 
 // Exercise 1: Get the array of all directors.
@@ -67,6 +68,16 @@ function moviesAverageByCategory() {
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {
+  /*const newSyntaxis = movies.map(v => v.duration.replace(/[^0-9,.]+/g, " "))
+  const newDuration = newSyntaxis.map (v => Number(v.substring(0,1)*60) + Number((v).substring(2,4)))
+  const newMovies = movies.map(v => { return v.duration = newDuration})*/
+
+  const newMovies = movies.map(v => {
+    v.duration.replace(/[^0-9,.]+/g, " ");
+    let newTime = parseInt(v.duration.slice(0,1)*60) + parseInt(v.duration.slice(2,4));
+    return{...v, duration : newTime}
+  })
+  console.log(newMovies)
 
 }
 
